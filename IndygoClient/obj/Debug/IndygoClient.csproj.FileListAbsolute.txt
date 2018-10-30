@@ -1,0 +1,7 @@
+D:\Indygo\IndygoClient\IndygoClient\bin\Debug\IndygoClient.dll
+D:\Indygo\IndygoClient\IndygoClient\bin\Debug\IndygoClient.pdb
+D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.csproj.CoreCompileInputs.cache
+D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.dll
+D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.pdb
+D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.Forms.formValidator.resources
+D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.csproj.GenerateResource.cache
