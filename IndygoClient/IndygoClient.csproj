@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Class\LicenseHandler.cs" />
     <Compile Include="Class\TokenHandler.cs" />
+    <Compile Include="Class\WebClient.cs" />
     <Compile Include="ResponseEnum.cs" />
     <Compile Include="Forms\formValidator.cs">
       <SubType>Form</SubType>

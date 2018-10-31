@@ -39,7 +39,6 @@ namespace Indygo
                 case (byte)TokenValidationStatus.TokenValidated:
 
                     //Now we check for a locally stored license file
-
                     var licenseHandler = new LicenseHandler(this.Token);
 
                     if (licenseHandler.ValidateLocalLicense())
@@ -50,7 +49,7 @@ namespace Indygo
                     }
                     // No local file found, proceed
 
-                    if (this.UseDefaultActivationPanel) // 
+                    if (UseDefaultActivationPanel) // 
                     {
                         //Display activation panel
                         var formValidator = new formValidator();
