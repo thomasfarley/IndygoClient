@@ -47,8 +47,8 @@ namespace Indygo
                         //return (byte)Status.Success;
 
                     }
-                    // No local file found, proceed
 
+                    // No local file found, proceed
                     if (UseDefaultActivationPanel) // 
                     {
                         //Display activation panel
@@ -56,7 +56,6 @@ namespace Indygo
                         formValidator.ShowDialog();
                    
                     }
-                    
                     break;
 
                 case (byte)TokenValidationStatus.InvalidToken:
@@ -70,11 +69,7 @@ namespace Indygo
 
                 case (byte)TokenValidationStatus.UnknownError:
                     break;
-
-                default:
-                    break;
             }
-
             return (byte)Status.Success;
         }
     }
