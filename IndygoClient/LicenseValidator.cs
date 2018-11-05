@@ -12,7 +12,8 @@ namespace Indygo
     {
         private enum Status { Success, InvalidToken }
 
-        private string Token { get; }
+        private string Token;
+
         internal bool UseDefaultActivationPanel { get; }
         
         //Constructor
@@ -53,7 +54,7 @@ namespace Indygo
                     if (UseDefaultActivationPanel) // 
                     {
                         //Display activation panel
-                        var formValidator = new formValidator().ShowDialog();
+                        var formValidator = new formValidator(ref licenseHandler).ShowDialog();
                     }
                     break;
 

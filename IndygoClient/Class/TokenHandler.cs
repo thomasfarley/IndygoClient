@@ -1,5 +1,4 @@
 ﻿using IndygoClient.Controllers;
-using IndygoClient.Models;
 using static IndygoClient.ResponseEnum;
 
 namespace IndygoClient.Class
@@ -15,7 +14,7 @@ namespace IndygoClient.Class
 
         internal byte ValidateToken(string Token)
         {
-            Token token = tokensController.FindByTokenId(Token);
+            var token = tokensController.FindByTokenId(Token);
             if (token != null && token.TokenId == Token)
             {
                 if (!token.IsDisabled)

@@ -14,14 +14,15 @@ namespace IndygoClient.Class
     internal class NetworkHandler : INetworkHandler
     {
         private readonly Encoding _encoding = Encoding.UTF8;
-        private readonly HttpClient _client;
+        private static HttpClient _client = new HttpClient();
 
         public JsonSerializerSettings JsonSettings { get; set; }
 
         internal NetworkHandler()
         {
-            _client = new HttpClient();
+
         }
+
         #region Download Methods
         public Tuple<ResponseInfo, T> DownloadJson<T>(string url, Dictionary<string, string> headers = null)
         {
@@ -48,6 +49,61 @@ namespace IndygoClient.Class
                 }, Task.Run(() => response.Content.ReadAsByteArrayAsync()).Result);
             }
         }
+
+        public Tuple<ResponseInfo, byte[]> PostRaw(string url, FormUrlEncodedContent formUrlEncodedContents, Dictionary<string, string> headers = null)
+        {
+            if (headers != null)
+            {
+                AddHeaders(headers);
+            }
+            HttpContent content = formUrlEncodedContents;
+            using (HttpResponseMessage response = Task.Run(() => _client.PostAsync(url, content)).Result)
+            {
+                return new Tuple<ResponseInfo, byte[]>(new ResponseInfo
+                {
+                    StatusCode = response.StatusCode,
+                    Headers = ConvertHeaders(response.Headers)
+                }, Task.Run(() => response.Content.ReadAsByteArrayAsync()).Result);
+            }
+
+        }
+        public async Task<Tuple<ResponseInfo, byte[]>> PostRawAsync(string url, FormUrlEncodedContent formUrlEncodedContents, Dictionary<string, string> headers = null)
+        {
+            if (headers != null)
+            {
+                AddHeaders(headers);
+            }
+            using (HttpResponseMessage response = await _client.PostAsync(url, formUrlEncodedContents).ConfigureAwait(false))
+            {
+                return new Tuple<ResponseInfo, byte[]>(new ResponseInfo
+                {
+                    StatusCode = response.StatusCode,
+                    Headers = ConvertHeaders(response.Headers)
+                }, await response.Content.ReadAsByteArrayAsync());
+            }
+        }
+        public Tuple<ResponseInfo, string> Post(string url, FormUrlEncodedContent formUrlEncodedContents, Dictionary<string, string> headers = null)
+        {
+            Tuple<ResponseInfo, byte[]> raw = PostRaw(url, formUrlEncodedContents, headers);
+            return new Tuple<ResponseInfo, string>(raw.Item1, raw.Item2.Length > 0 ? _encoding.GetString(raw.Item2) : "{}");
+        }
+        public async Task<Tuple<ResponseInfo, string>> PostAsync(string url, FormUrlEncodedContent formUrlEncodedContents, Dictionary<string, string> headers = null)
+        {
+            Tuple<ResponseInfo, byte[]> raw = await PostRawAsync(url, formUrlEncodedContents, headers).ConfigureAwait(false);
+            return new Tuple<ResponseInfo, string>(raw.Item1, raw.Item2.Length > 0 ? _encoding.GetString(raw.Item2) : "{}");
+        }
+        public Tuple<ResponseInfo, T> PostJson<T>(string url, FormUrlEncodedContent formUrlEncodedContents, Dictionary<string, string> headers = null)
+        {
+
+            Tuple<ResponseInfo, string> response = Post(url, formUrlEncodedContents, headers);
+            return new Tuple<ResponseInfo, T>(response.Item1, JsonConvert.DeserializeObject<T>(response.Item2, JsonSettings));
+        }
+        public async Task<Tuple<ResponseInfo, T>> PostJsonAsync<T>(string url, FormUrlEncodedContent formUrlEncodedContents, Dictionary<string, string> headers = null)
+        {
+            Tuple<ResponseInfo, string> response = await PostAsync(url, formUrlEncodedContents, headers).ConfigureAwait(false);
+            return new Tuple<ResponseInfo, T>(response.Item1, JsonConvert.DeserializeObject<T>(response.Item2, JsonSettings));
+        }
+
         public async Task<Tuple<ResponseInfo, byte[]>> DownloadRawAsync(string url, Dictionary<string, string> headers = null)
         {
             if (headers != null)

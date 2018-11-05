@@ -3,9 +3,6 @@
     internal class ResponseEnum
     {
         internal enum TokenValidationStatus { TokenValidated, InvalidToken, BannedToken, SoftwareOutOfDate, UnknownError }
-        internal enum LicenseStatus
-        {
-            Status
-        }
+        internal enum LicenseStatus { LicenseValidated, InvalidLicense, LicenseBanned, LicenseExpired, UnknownError }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using System;
+
 namespace IndygoClient.Models
 {
-    public class Token
+    internal class Token
     {
         public string TokenId { get; set; }
         public int CompanyId { get; set; }

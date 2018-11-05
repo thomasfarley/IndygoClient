@@ -6,20 +6,12 @@ using System.Windows.Forms;
 
 namespace IndygoClient.Controllers
 {
-    internal class TokensController
+    internal class TokensController : BaseController
     {
-        private string apiUrl = "http://localhost:59641/api/Tokens/";
-        NetworkHandler networkHandler;
-
-        internal TokensController()
-        {
-            networkHandler = new NetworkHandler();
-        }
-
+        private string route = "Tokens/";
         internal async Task<Token> FindByTokenIdAsync(string tokenId)
         {
-            Tuple<ResponseInfo, Token> token = await networkHandler.DownloadJsonAsync<Token>(apiUrl + tokenId);
-            networkHandler.Dispose();
+            var token = await networkHandler.DownloadJsonAsync<Token>(apiUrl + tokenId);
 
             return token.Item2;
         }
@@ -27,17 +19,12 @@ namespace IndygoClient.Controllers
         {
             try
             {
-                Tuple<ResponseInfo, Token> token = networkHandler.DownloadJson<Token>(apiUrl + tokenId);
-                MessageBox.Show(token.Item2.TimeCreated.ToShortDateString());
+                var token = networkHandler.DownloadJson<Token>(apiUrl + route + tokenId);
                 return token.Item2;
             }
-            catch(Exception ex)
+            catch(Exception ex) // Failed to connect
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                networkHandler.Dispose();
             }
             return null;
         }
