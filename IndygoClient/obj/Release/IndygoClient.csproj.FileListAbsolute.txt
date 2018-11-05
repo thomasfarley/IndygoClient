@@ -1,0 +1,11 @@
+D:\Indygo\IndygoClient\IndygoClient\bin\Release\IndygoClient.dll
+D:\Indygo\IndygoClient\IndygoClient\bin\Release\IndygoClient.pdb
+D:\Indygo\IndygoClient\IndygoClient\bin\Release\Newtonsoft.Json.dll
+D:\Indygo\IndygoClient\IndygoClient\bin\Release\Newtonsoft.Json.xml
+D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.csprojAssemblyReference.cache
+D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.Forms.formValidator.resources
+D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.csproj.GenerateResource.cache
+D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.csproj.CoreCompileInputs.cache
+D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.csproj.CopyComplete
+D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.dll
+D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.pdb

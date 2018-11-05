@@ -6,7 +6,6 @@
         internal enum LicenseStatus
         {
             Status
-
         }
     }
 }

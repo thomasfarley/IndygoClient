@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IndygoClient.Controllers;
+using IndygoClient.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +21,12 @@ namespace IndygoClient.Forms
 
         private void formValidator_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+
 
         }
     }

@@ -1,6 +1,9 @@
 ﻿using IndygoClient.Class;
+using IndygoClient.Controllers;
 using IndygoClient.Forms;
+using IndygoClient.Models;
 using System;
+using System.Windows.Forms;
 using static IndygoClient.ResponseEnum;
 
 namespace Indygo
@@ -39,35 +42,39 @@ namespace Indygo
                 case (byte)TokenValidationStatus.TokenValidated:
 
                     //Now we check for a locally stored license file
-                    var licenseHandler = new LicenseHandler(this.Token);
+                    var licenseHandler = new LicenseHandler(Token);
 
                     if (licenseHandler.ValidateLocalLicense())
                     {
-
                         //return (byte)Status.Success;
-
                     }
 
                     // No local file found, proceed
                     if (UseDefaultActivationPanel) // 
                     {
                         //Display activation panel
-                        var formValidator = new formValidator();
-                        formValidator.ShowDialog();
-                   
+                        var formValidator = new formValidator().ShowDialog();
                     }
                     break;
 
                 case (byte)TokenValidationStatus.InvalidToken:
+
+                    MessageBox.Show("Your API key is invalid.");
+                    Environment.Exit(Environment.ExitCode);
+
                     break;
 
                 case (byte)TokenValidationStatus.BannedToken:
+
+                    MessageBox.Show("Your API key is banned.");
+                    Environment.Exit(Environment.ExitCode);
                     break;
 
                 case (byte)TokenValidationStatus.SoftwareOutOfDate:
                     break;
 
                 case (byte)TokenValidationStatus.UnknownError:
+                    
                     break;
             }
             return (byte)Status.Success;

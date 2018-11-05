@@ -5,3 +5,11 @@ D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.dll
 D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.pdb
 D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.Forms.formValidator.resources
 D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.csproj.GenerateResource.cache
+D:\Indygo\IndygoClient\IndygoClient\bin\Debug\Newtonsoft.Json.dll
+D:\Indygo\IndygoClient\IndygoClient\bin\Debug\Newtonsoft.Json.xml
+D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.csproj.CopyComplete
+D:\Indygo\IndygoClient\IndygoClient\bin\Debug\System.Security.Cryptography.Algorithms.dll
+D:\Indygo\IndygoClient\IndygoClient\bin\Debug\System.Security.Cryptography.Encoding.dll
+D:\Indygo\IndygoClient\IndygoClient\bin\Debug\System.Security.Cryptography.Primitives.dll
+D:\Indygo\IndygoClient\IndygoClient\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+D:\Indygo\IndygoClient\IndygoClient\obj\Debug\IndygoClient.csprojAssemblyReference.cache
