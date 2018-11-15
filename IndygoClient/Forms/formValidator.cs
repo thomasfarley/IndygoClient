@@ -1,8 +1,7 @@
 ﻿using IndygoClient.Class;
-using IndygoClient.Models;
 using System;
 using System.Windows.Forms;
-using static IndygoClient.ResponseEnum;
+using Newtonsoft.Json;
 
 namespace IndygoClient.Forms
 {
@@ -29,9 +28,9 @@ namespace IndygoClient.Forms
 
         private async void button1_ClickAsync(object sender, EventArgs e)
         {
-            var data = await licenseHandler.ValidateLicenseKeyAsync(textBox1.Text);
-            if (data.Item1 == null) { return; }
-
+            var response = await licenseHandler.RegisterKeyAsync(textBox1.Text);
+            
+            /*
             switch(data.Item2)
             {
                 case (byte)LicenseStatus.LicenseValidated:
@@ -50,6 +49,7 @@ namespace IndygoClient.Forms
                     break;
 
             }
+            */
         }
     }
 }

@@ -9,3 +9,7 @@ D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.csproj.CoreCompileI
 D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.csproj.CopyComplete
 D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.dll
 D:\Indygo\IndygoClient\IndygoClient\obj\Release\IndygoClient.pdb
+D:\Indygo\IndygoClient\IndygoClient\bin\Release\System.Security.Cryptography.Algorithms.dll
+D:\Indygo\IndygoClient\IndygoClient\bin\Release\System.Security.Cryptography.Encoding.dll
+D:\Indygo\IndygoClient\IndygoClient\bin\Release\System.Security.Cryptography.Primitives.dll
+D:\Indygo\IndygoClient\IndygoClient\bin\Release\System.Security.Cryptography.X509Certificates.dll

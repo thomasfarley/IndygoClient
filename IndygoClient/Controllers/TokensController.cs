@@ -8,7 +8,7 @@ namespace IndygoClient.Controllers
 {
     internal class TokensController : BaseController
     {
-        private string route = "Tokens/";
+        private string route = "tokens/";
         internal async Task<Token> FindByTokenIdAsync(string tokenId)
         {
             var token = await networkHandler.DownloadJsonAsync<Token>(apiUrl + tokenId);
@@ -24,7 +24,7 @@ namespace IndygoClient.Controllers
             }
             catch(Exception ex) // Failed to connect
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + " - TokensController.FindByTokenId");
             }
             return null;
         }

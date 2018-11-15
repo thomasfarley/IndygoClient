@@ -4,7 +4,7 @@ using IndygoClient.Forms;
 using IndygoClient.Models;
 using System;
 using System.Windows.Forms;
-using static IndygoClient.ResponseEnum;
+using static IndygoClient.Response;
 
 namespace Indygo
 {
@@ -40,41 +40,42 @@ namespace Indygo
 
             switch (tokenHandler.ValidateToken(Token))
             {
-                case (byte)TokenValidationStatus.TokenValidated:
+                case TokenValidationStatus.TokenValidated:
 
                     //Now we check for a locally stored license file
                     var licenseHandler = new LicenseHandler(Token);
 
-                    if (licenseHandler.ValidateLocalLicense())
+                    /*if (licenseHandler.ValidateLocalLicense())
                     {
                         //return (byte)Status.Success;
                     }
-
+                    */
                     // No local file found, proceed
                     if (UseDefaultActivationPanel) // 
                     {
                         //Display activation panel
-                        var formValidator = new formValidator(ref licenseHandler).ShowDialog();
+                        var formValidator = new formValidator(ref licenseHandler);
+                        formValidator.ShowDialog();
                     }
                     break;
 
-                case (byte)TokenValidationStatus.InvalidToken:
+                case TokenValidationStatus.InvalidToken:
 
                     MessageBox.Show("Your API key is invalid.");
                     Environment.Exit(Environment.ExitCode);
 
                     break;
 
-                case (byte)TokenValidationStatus.BannedToken:
+                case TokenValidationStatus.BannedToken:
 
                     MessageBox.Show("Your API key is banned.");
                     Environment.Exit(Environment.ExitCode);
                     break;
 
-                case (byte)TokenValidationStatus.SoftwareOutOfDate:
+                case TokenValidationStatus.SoftwareOutOfDate:
                     break;
 
-                case (byte)TokenValidationStatus.UnknownError:
+                case TokenValidationStatus.UnknownError:
                     
                     break;
             }

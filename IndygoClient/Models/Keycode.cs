@@ -2,12 +2,12 @@
 {
     internal class Keycode
     {
-        public string KeycodeId { get; set; }
-        public string TokenId { get; set; }
-        public Token Token { get; set; }
-        public int MaxRegistrations { get; set; }
-        public int ExpirationLength { get; set; }
-        public byte Package { get; set; }
-        public bool IsBanned { get; set; }
+        public string KeycodeId { get; }
+        public string TokenId { get; }
+        public Token Token { get; }
+        public int MaxRegistrations { get; }
+        public int ExpirationLength { get; }
+        public byte Package { get; }
+        public bool IsBanned { get; }
     }
 }

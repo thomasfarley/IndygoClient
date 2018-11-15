@@ -62,15 +62,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\LicenseHandler.cs" />
-    <Compile Include="Class\NetworkHandler.cs" />
-    <Compile Include="Class\TokenHandler.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="LicenseHandler.cs" />
+    <Compile Include="NetworkHandler.cs" />
+    <Compile Include="TokenHandler.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\KeyController.cs" />
     <Compile Include="Controllers\TokensController.cs" />
     <Compile Include="Interface\INetworkHandler.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\KeyAuth.cs" />
+    <Compile Include="Models\Keycode.cs" />
+    <Compile Include="Models\KeycodeBan.cs" />
+    <Compile Include="Models\KeyRegistration.cs" />
     <Compile Include="Models\ResponseInfo.cs" />
+    <Compile Include="Models\Software.cs" />
+    <Compile Include="Models\SoftwareBan.cs" />
     <Compile Include="Models\Token.cs" />
-    <Compile Include="ResponseEnum.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserCompany.cs" />
+    <Compile Include="Response.cs" />
     <Compile Include="Forms\formValidator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,5 +99,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

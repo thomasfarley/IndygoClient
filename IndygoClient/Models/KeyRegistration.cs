@@ -10,6 +10,6 @@ namespace IndygoClient.Models
         public Token Token { get; set; }
         public DateTime RegistrationDate { get; set; }
         public DateTime ExpirationDate { get; set; }
-        public string IPAddress { get; set; }
+        public string IPAddress { get; set;  }
     }
 }

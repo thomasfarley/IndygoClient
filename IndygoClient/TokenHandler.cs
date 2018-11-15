@@ -1,5 +1,6 @@
-﻿using IndygoClient.Controllers;
-using static IndygoClient.ResponseEnum;
+﻿using static IndygoClient.Response;
+
+using IndygoClient.Controllers;
 
 namespace IndygoClient.Class
 {
@@ -12,23 +13,23 @@ namespace IndygoClient.Class
             tokensController = new TokensController();
         }
 
-        internal byte ValidateToken(string Token)
+        internal TokenValidationStatus ValidateToken(string Token)
         {
             var token = tokensController.FindByTokenId(Token);
             if (token != null && token.TokenId == Token)
             {
                 if (!token.IsDisabled)
                 {
-                    return (byte)TokenValidationStatus.TokenValidated;
+                    return TokenValidationStatus.TokenValidated;
                 }
                 else
                 {
-                    return (byte)TokenValidationStatus.BannedToken;
+                    return TokenValidationStatus.BannedToken;
                 }
             }
             else
             {
-                return (byte)TokenValidationStatus.InvalidToken;
+                return TokenValidationStatus.InvalidToken;
             }
         }
     }
